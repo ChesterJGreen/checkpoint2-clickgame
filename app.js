@@ -1,5 +1,6 @@
 let power = 0
-let allMultiplier = 0
+let totalPower = 0
+let multiplier = 0
 let aUpgrades = 0
 let cUpgrades = 0
 let click = 0
@@ -23,33 +24,40 @@ let automaticUpgrades = {
 
 
 function powerOfThor() {
-  power += 1
+  // debugger
+  totalPower += 1
+  totalPower += multiplier
+  console.log(totalPower)
 
   //+ total of all multipliers
   update()
 }
 
 function update() {
-  document.getElementById('powerOS').innerHTML = `${power}`
+  document.getElementById('powerOS').innerHTML = `${totalPower}`
 
 }
 
 function buyBoyFists() {
-  if (power >= clickUpgrades.boyFists.price) {
-    power -= clickUpgrades.boyFists.price;
+
+  if (totalPower >= clickUpgrades.boyFists.price) {
+    totalPower -= clickUpgrades.boyFists.price;
     clickUpgrades.boyFists.price *= 1.5;
-    Math.round(clickUpgrades.boyFists.price: );
+    Math.round(clickUpgrades.boyFists.price);
     clickUpgrades.boyFists.quantity++;
-    power = Math.round(power)
+    totalPower = Math.round(totalPower)
   }
+  boyFistsMultiplier()
   update()
 }
-function BoyFistsMultiplier() {
+function boyFistsMultiplier() {
+
   let quantity = clickUpgrades.boyFists.quantity
-  let multiplier = clickUpgrades.boyFists.multiplier
+  let bfmultiplier = clickUpgrades.boyFists.multiplier
   if (quantity > 0) {
-    allMultiplier = quantity * multiplier
+    multiplier += (quantity * bfmultiplier)
   }
+
 }
 function buyFollower() {
   alert('purchased Soldier')
