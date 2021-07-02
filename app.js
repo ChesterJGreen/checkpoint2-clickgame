@@ -27,7 +27,7 @@ function powerOfThor() {
   // debugger
   totalPower += 1
   totalPower += multiplier
-  console.log(totalPower)
+
 
   //+ total of all multipliers
   update()
@@ -39,13 +39,13 @@ function update() {
 }
 
 function buyBoyFists() {
-
   if (totalPower >= clickUpgrades.boyFists.price) {
     totalPower -= clickUpgrades.boyFists.price;
     clickUpgrades.boyFists.price *= 1.5;
-    Math.round(clickUpgrades.boyFists.price);
     clickUpgrades.boyFists.quantity++;
     totalPower = Math.round(totalPower)
+    clickUpgrades.boyFists.price = Math.round(clickUpgrades.boyFists.price)
+    document.getElementById('bbf').innerText = `Price: ${clickUpgrades.boyFists.price}`
   }
   boyFistsMultiplier()
   update()
@@ -60,23 +60,18 @@ function boyFistsMultiplier() {
 
 }
 function buyFollower() {
-  alert('purchased Soldier')
-  let quantity = automaticUpgrades.follower.quantity;
-  quantity++
-  console.log(quantity);
+  if (totalPower >= automaticUpgrades.follower.price) {
+    totalPower -= automaticUpgrades.follower.price;
+    automaticUpgrades.follower.price *= 1.5;
+    Math.round(automaticUpgrades.follower.price);
+    automaticUpgrades.follower.quantity++;
+    totalPower = Math.round(totalPower)
+  }
   collectAutoUpgrades()
+  boyFistsMultiplier()
+  update()
 }
 
 function collectAutoUpgrades() {
   collectionInterval = setInterval(collectAutoUpgrades, 3000);
 }
-
-// // cup = ClickUpgradesPurchased
-// function upgrades() {
-//   let cup
-//   for (let key in clickUpgrades) {
-//     let quantity = clickUpgrades[key].quantity
-
-//   }
-//   if (clickUpgrades = !0) { power *= quantity * multiplier }
-// }
