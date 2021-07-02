@@ -1,8 +1,17 @@
 body {
-  height: 100vh;
-  
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-main {
+main{
   flex-grow: 1;
+}
+
+.bg-snow {
+  background-image: url("images/bgSnowGif.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 70%;
+
 }
