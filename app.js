@@ -119,6 +119,7 @@ function auFollowerMult() {
   if (quantity > 0) {
     multiplier = (quantity * fmultiplier)
   }
+  // document.getElementById('blankimage').innerHTML = 
 
 }
 
