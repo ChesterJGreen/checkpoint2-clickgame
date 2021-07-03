@@ -4,6 +4,7 @@ let multiplier = 0
 let aUpgrades = 0
 let cUpgrades = 0
 let autoClick = 0
+let autoMultiplier = 0
 // // let allCModifiers = for (let modifiers in clickUpgrades) {
 // //   clickUpgrades[modifiers].multiplier
 // }
@@ -51,6 +52,7 @@ function update() {
 }
 
 function buyBoyFists() {
+  let
   if (totalPower >= clickUpgrades.boyFists.price) {
     totalPower -= clickUpgrades.boyFists.price;
     clickUpgrades.boyFists.price *= 1.5;
@@ -58,11 +60,11 @@ function buyBoyFists() {
     clickUpgrades.boyFists.price = Math.round(clickUpgrades.boyFists.price)
     document.getElementById('bbf').innerText = `Price: ${clickUpgrades.boyFists.price}`
   }
-  upgradeClickMultiplier(boyFists)
+  upgradeClickMultiplier('boyFists')
   // boyFistsMultiplier()
   update()
 }//STILL STUCK ON THIS FOR IN LOOP
-function upgradeClickMultiplier(key) {
+function upgradeClickMultiplier() {
   for (let key in clickUpgrades) {
     let upgrade = clickUpgrades[key]
     let quantity = upgrade.quantity
@@ -78,17 +80,23 @@ function upgradeClickMultiplier(key) {
 function buyFollower() {
   if (totalPower >= automaticUpgrades.follower.price) {
     totalPower -= automaticUpgrades.follower.price;
+
     automaticUpgrades.follower.price *= 1.5;
     Math.round(automaticUpgrades.follower.price);
     automaticUpgrades.follower.quantity++;
-    totalPower = Math.round(totalPower)
+
     automaticUpgrades.follower.price = Math.round(automaticUpgrades.follower.price)
     document.getElementById('buyfollow').innerText = `Price: ${automaticUpgrades.follower.price}`
   }
-  collectAutoUpgrades()
+
   auFollowerMult()
   update()
 }
+function upgradeAutoMultiplier()
+//instead of upgrading multiplier we upgrade the autoMultiplier
+
+//phil - take automultiplier and add it to power 
+///update ()
 
 // function collectAutoUpgrades() {
 //   collectionInterval = setInterval(collectAutoUpgrades, 3000);
