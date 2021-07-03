@@ -50,15 +50,6 @@ function buyBoyFists() {
   boyFistsMultiplier()
   update()
 }
-function boyFistsMultiplier() {
-
-  let quantity = clickUpgrades.boyFists.quantity
-  let bfmultiplier = clickUpgrades.boyFists.multiplier
-  if (quantity > 0) {
-    multiplier += (quantity * bfmultiplier)
-  }
-
-}
 function buyFollower() {
   if (totalPower >= automaticUpgrades.follower.price) {
     totalPower -= automaticUpgrades.follower.price;
@@ -71,7 +62,18 @@ function buyFollower() {
   boyFistsMultiplier()
   update()
 }
-
 function collectAutoUpgrades() {
   collectionInterval = setInterval(collectAutoUpgrades, 3000);
+}
+
+
+
+function boyFistsMultiplier() {
+
+  let quantity = clickUpgrades.boyFists.quantity
+  let bfmultiplier = clickUpgrades.boyFists.multiplier
+  if (quantity > 0) {
+    multiplier += (quantity * bfmultiplier)
+  }
+
 }
