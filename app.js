@@ -3,7 +3,7 @@ let totalPower = 0
 let multiplier = 0
 let aUpgrades = 0
 let cUpgrades = 0
-let click = 0
+let autoClick = 0
 // // let allCModifiers = for (let modifiers in clickUpgrades) {
 // //   clickUpgrades[modifiers].multiplier
 // }
@@ -12,6 +12,11 @@ let clickUpgrades = {
     price: 10,
     quantity: 0,
     multiplier: 1
+  },
+  manHands: {
+    price: 10000,
+    quantity: 0,
+    multiplier: 100
   }
 };
 let automaticUpgrades = {
@@ -19,6 +24,11 @@ let automaticUpgrades = {
     price: 600,
     quantity: 0,
     multiplier: 20
+  },
+  soldier: {
+    price: 10000,
+    quantity: 0,
+    multiplier: 100
   }
 };
 
@@ -29,11 +39,13 @@ function powerOfThor() {
   totalPower += multiplier
 
 
+
   //+ total of all multipliers
   update()
 }
 
 function update() {
+  totalPower = Math.round(totalPower)
   document.getElementById('powerOS').innerHTML = `${totalPower}`
 
 }
@@ -43,13 +55,23 @@ function buyBoyFists() {
     totalPower -= clickUpgrades.boyFists.price;
     clickUpgrades.boyFists.price *= 1.5;
     clickUpgrades.boyFists.quantity++;
-    totalPower = Math.round(totalPower)
     clickUpgrades.boyFists.price = Math.round(clickUpgrades.boyFists.price)
     document.getElementById('bbf').innerText = `Price: ${clickUpgrades.boyFists.price}`
   }
-  boyFistsMultiplier()
+  upgradeClickMultiplier(boyFists)
+  // boyFistsMultiplier()
   update()
 }
+function upgradeClickMultiplier(key) {
+  let quantity = clickUpgrades[key].quantity
+  let clickMultiplier = clickUpgrades[key].multiplier
+  let cMultiplier = quantity * clickMultiplier
+  if (quantity > 0) {
+    multiplier = (cMultiplier)
+  }
+}
+
+
 function buyFollower() {
   if (totalPower >= automaticUpgrades.follower.price) {
     totalPower -= automaticUpgrades.follower.price;
@@ -61,21 +83,52 @@ function buyFollower() {
     document.getElementById('buyfollow').innerText = `Price: ${automaticUpgrades.follower.price}`
   }
   collectAutoUpgrades()
-  boyFistsMultiplier()
+  auFollowerMult()
   update()
 }
-function collectAutoUpgrades() {
-  collectionInterval = setInterval(collectAutoUpgrades, 3000);
-}
 
+// function collectAutoUpgrades() {
+//   collectionInterval = setInterval(collectAutoUpgrades, 3000);
+//   let quantity = automaticUpgrades.follower.quantity
+//   let fmultiplier = automaticUpgrades.follower.multiplier
+//   if (quantity > 0) {
+//     multiplier += (quantity * fmultiplier)
+//   }
+//   //collectionInterval powerOfThor()
+// }
 
 
 function boyFistsMultiplier() {
 
   let quantity = clickUpgrades.boyFists.quantity
   let bfmultiplier = clickUpgrades.boyFists.multiplier
+  let bfMult = quantity * bfmultiplier
   if (quantity > 0) {
-    multiplier += (quantity * bfmultiplier)
+    multiplier = (bfMult)
   }
 
 }
+
+function auFollowerMult() {
+
+  let quantity = automaticUpgrades.follower.quantity
+  let fmultiplier = automaticUpgrades.follower.multiplier
+  if (quantity > 0) {
+    multiplier = (quantity * fmultiplier)
+  }
+
+}
+
+// function UpMultiplier() {
+//   let clQuantity = clickUpgrades[key].quantity
+//   let clMultiplier = clickUpgrades[key].multiplier
+//   let auQuantity = automaticUpgrades[key].quantity
+//   let auMultiplier = automaticUpgrades[key].multiplier
+//   if (clQuantity > 0) {
+//     multiplier = (clQuantity * clMultiplier)
+//   }
+//   if (auQuantity > 0) {
+//     multiplier = (auQuantity * auMultiplier)
+//   }
+// }
+// trying to combine the multiplier classes 
