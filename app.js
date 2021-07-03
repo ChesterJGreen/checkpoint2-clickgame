@@ -57,6 +57,8 @@ function buyFollower() {
     Math.round(automaticUpgrades.follower.price);
     automaticUpgrades.follower.quantity++;
     totalPower = Math.round(totalPower)
+    automaticUpgrades.follower.price = Math.round(automaticUpgrades.follower.price)
+    document.getElementById('buyfollow').innerText = `Price: ${automaticUpgrades.follower.price}`
   }
   collectAutoUpgrades()
   boyFistsMultiplier()
