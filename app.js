@@ -61,13 +61,16 @@ function buyBoyFists() {
   upgradeClickMultiplier(boyFists)
   // boyFistsMultiplier()
   update()
-}
+}//STILL STUCK ON THIS FOR IN LOOP
 function upgradeClickMultiplier(key) {
-  let quantity = clickUpgrades[key].quantity
-  let clickMultiplier = clickUpgrades[key].multiplier
-  let cMultiplier = quantity * clickMultiplier
-  if (quantity > 0) {
-    multiplier = (cMultiplier)
+  for (let key in clickUpgrades) {
+    let upgrade = clickUpgrades[key]
+    let quantity = upgrade.quantity
+    let clickMultiplier = upgrade.multiplier
+    let cMultiplier = quantity * clickMultiplier
+    if (quantity > 0) {
+      multiplier = (cMultiplier)
+    }
   }
 }
 
