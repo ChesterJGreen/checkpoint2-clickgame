@@ -12,24 +12,28 @@ let clickUpgrades = {
   boyFists: {
     price: 10,
     quantity: 0,
-    multiplier: 1
+    multiplier: 1,
+    elementId: 'bbf'
   },
   manHands: {
     price: 10000,
     quantity: 0,
-    multiplier: 100
+    multiplier: 100,
+    elementId: ''
   }
 };
 let automaticUpgrades = {
   follower: {
     price: 600,
     quantity: 0,
-    multiplier: 20
+    multiplier: 20,
+    elementId: 'buyFollow'
   },
   soldier: {
     price: 10000,
     quantity: 0,
-    multiplier: 100
+    multiplier: 100,
+    elementId: ''
   }
 };
 
@@ -53,22 +57,27 @@ function update() {
 }
 function buyUpgrade(upgradeName, purchasedQuantity) {
   if (clickUpgrades[upgradeName] && clickUpgrades[upgradeName].price * purchasedQuantity <= totalPower) {
+    //console.log if problems(before changes)
     totalPower -= clickUpgrades[upgradeName].price
-    clickUpgrades[upgradeName].price * 1.5
-    clickUpgrades[upgradeName].quantity = clickUpgrades[upgradeName].quantity + purchasedQuantity
+    clickUpgrades[upgradeName].price = clickUpgrades[upgradeName].price * 1.5
     clickUpgrades[upgradeName].price = Math.round(clickUpgrades[upgradeName].price)
-    document.getElementById(clickUpgrades[upgradeName].price).innerText = `Price: ${clickUpgrades[upgradeName].price}`
+    clickUpgrades[upgradeName].quantity = clickUpgrades[upgradeName].quantity + purchasedQuantity
+    document.getElementById(clickUpgrades[upgradeName].elementId).innerText = `Price: ${clickUpgrades[upgradeName].price}`
+    //console.log if problems(after changes)
+    upgradeClickMultiplier(upgradeName, purchasedQuantity)
+    update()
   }
-  upgradeClickMultiplier(upgradeName, purchasedQuantity)
-  update()
 }
 
 function upgradeClickMultiplier(key, purchasedQuantity) {
   if (clickUpgrades[key]) {
+    // console.log if problems(before changes)
     let upgrade = clickUpgrades[key]
     let clickMultiplier = upgrade.multiplier
     let cMultiplier = purchasedQuantity * clickMultiplier
     multiplier += cMultiplier
+    //console.log if problems(after changes)
+
   }
 }
 
@@ -78,7 +87,34 @@ function collectAutoUpgrades() {
   let collectionInterval = setInterval(collectAutoUpgrades, 3000)
 }
 
+function buyAutomatic(upgradeName, purchasedQuantity) {
+  if (automaticUpgrades[upgradeName] && automaticUpgrades[upgradeName].price * purchasedQuantity <= totalPower) {
+    console.log(automaticUpgrades[upgradeName].quantity)
+    console.log(automaticUpgrades.upgradeName.price)
+    totalPower -= automaticUpgrades[upgradeName].price
+    automaticUpgrades[upgradeName].price = automaticUpgrades[upgradeName].price * 1.5
+    automaticUpgrades[upgradeName].price = Math.round(automaticUpgrades[upgradeName].price)
+    automaticUpgrades[upgradeName].quantity = automaticUpgrades[upgradeName].quantity + purchasedQuantity
+    document.getElementById(automaticUpgrades[upgradeName].elementId).innerText = `Price: ${automaticUpgrades[upgradeName].price}`
+    console.log(automaticUpgrades[upgradeName].quantity)
+    console.log(automaticUpgrades.upgradeName.price)
+    upgradeAutoMultiplier(upgradeName, purchasedQuantity)
+    update()
+  }
+}
 
+function upgradeAutoMultiplier(key, purchasedQuantity) {
+  if (automaticUpgrades[key]) {
+    // console.log if problems(before changes)
+    let upgrade = automaticUpgrades[key]
+    let autoMultiplier = upgrade.multiplier
+    let aMultiplier = purchasedQuantity * autoMultiplier
+    multiplier += aMultiplier
+    //console.log if problems(after changes)
+
+    collectAutoUpgrades()
+  }
+}
 
 
 
@@ -101,22 +137,22 @@ function collectAutoUpgrades() {
 //   // boyFistsMultiplier()
 //   update()
 // }
-function buyAutoUpgrade() {
-  if (totalPower >= automaticUpgrades.follower.price) {
-    totalPower -= automaticUpgrades.follower.price;
+// function buyAutoUpgrade() {
+//   if (totalPower >= automaticUpgrades.follower.price) {
+//     totalPower -= automaticUpgrades.follower.price;
 
-    automaticUpgrades.follower.price *= 1.5;
-    Math.round(automaticUpgrades.follower.price);
-    automaticUpgrades.follower.quantity++;
+//     automaticUpgrades.follower.price *= 1.5;
+//     Math.round(automaticUpgrades.follower.price);
+//     automaticUpgrades.follower.quantity++;
 
-    automaticUpgrades.follower.price = Math.round(automaticUpgrades.follower.price)
-    document.getElementById('buyfollow').innerText = `Price: ${automaticUpgrades.follower.price}`
-  }
+//     automaticUpgrades.follower.price = Math.round(automaticUpgrades.follower.price)
+//     document.getElementById('buyfollow').innerText = `Price: ${automaticUpgrades.follower.price}`
+//   }
 
-  auFollowerMult()
-  update()
-}
-function upgradeAutoMultiplier() { }
+//   auFollowerMult()
+//   update()
+// }
+// function upgradeAutoMultiplier() { }
 
 
 //instead of upgrading multiplier we upgrade the autoMultiplier
