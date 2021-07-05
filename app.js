@@ -41,6 +41,7 @@ function powerOfThor() {
 
 
 
+
   //+ total of all multipliers
   update()
 }
@@ -50,9 +51,40 @@ function update() {
   document.getElementById('powerOS').innerHTML = `${totalPower}`
 
 }
+function buyUpgrade(upgradeName, purchasedQuantity) {
+  if (clickUpgrades[upgradeName] && clickUpgrades[upgradeName].price * purchasedQuantity <= totalPower) {
+    totalPower -= clickUpgrades[upgradeName].price
+    clickUpgrades[upgradeName].price * 1.5
+    clickUpgrades[upgradeName].quantity = clickUpgrades[upgradeName].quantity + purchasedQuantity
+    clickUpgrades[upgradeName].price = Math.round(clickUpgrades[upgradeName].price)
+    document.getElementById(clickUpgrades[upgradeName].price).innerText = `Price: ${clickUpgrades[upgradeName].price}`
+  }
+  upgradeClickMultiplier(upgradeName, purchasedQuantity)
+  update()
+}
+
+function upgradeClickMultiplier(key, purchasedQuantity) {
+  if (clickUpgrades[key]) {
+    let upgrade = clickUpgrades[key]
+    let clickMultiplier = upgrade.multiplier
+    let cMultiplier = purchasedQuantity * clickMultiplier
+    multiplier += cMultiplier
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 function buyBoyFists() {
-  let
+
   if (totalPower >= clickUpgrades.boyFists.price) {
     totalPower -= clickUpgrades.boyFists.price;
     clickUpgrades.boyFists.price *= 1.5;
@@ -63,20 +95,7 @@ function buyBoyFists() {
   upgradeClickMultiplier('boyFists')
   // boyFistsMultiplier()
   update()
-}//STILL STUCK ON THIS FOR IN LOOP
-function upgradeClickMultiplier() {
-  for (let key in clickUpgrades) {
-    let upgrade = clickUpgrades[key]
-    let quantity = upgrade.quantity
-    let clickMultiplier = upgrade.multiplier
-    let cMultiplier = quantity * clickMultiplier
-    if (quantity > 0) {
-      multiplier = (cMultiplier)
-    }
-  }
 }
-
-
 function buyFollower() {
   if (totalPower >= automaticUpgrades.follower.price) {
     totalPower -= automaticUpgrades.follower.price;
@@ -92,7 +111,9 @@ function buyFollower() {
   auFollowerMult()
   update()
 }
-function upgradeAutoMultiplier()
+function upgradeAutoMultiplier() { }
+
+
 //instead of upgrading multiplier we upgrade the autoMultiplier
 
 //phil - take automultiplier and add it to power 
@@ -109,27 +130,27 @@ function upgradeAutoMultiplier()
 // }
 
 
-function boyFistsMultiplier() {
+// function boyFistsMultiplier() {
 
-  let quantity = clickUpgrades.boyFists.quantity
-  let bfmultiplier = clickUpgrades.boyFists.multiplier
-  let bfMult = quantity * bfmultiplier
-  if (quantity > 0) {
-    multiplier = (bfMult)
-  }
+//   let quantity = clickUpgrades.boyFists.quantity
+//   let bfmultiplier = clickUpgrades.boyFists.multiplier
+//   let bfMult = quantity * bfmultiplier
+//   if (quantity > 0) {
+//     multiplier = (bfMult)
+//   }
 
-}
+// }
 
-function auFollowerMult() {
+// function auFollowerMult() {
 
-  let quantity = automaticUpgrades.follower.quantity
-  let fmultiplier = automaticUpgrades.follower.multiplier
-  if (quantity > 0) {
-    multiplier = (quantity * fmultiplier)
-  }
+//   let quantity = automaticUpgrades.follower.quantity
+//   let fmultiplier = automaticUpgrades.follower.multiplier
+//   if (quantity > 0) {
+//     multiplier = (quantity * fmultiplier)
+//   }
   // document.getElementById('blankimage').innerHTML = 
 
-}
+//}
 
 // function UpMultiplier() {
 //   let clQuantity = clickUpgrades[key].quantity
