@@ -72,31 +72,36 @@ function upgradeClickMultiplier(key, purchasedQuantity) {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-function buyBoyFists() {
-
-  if (totalPower >= clickUpgrades.boyFists.price) {
-    totalPower -= clickUpgrades.boyFists.price;
-    clickUpgrades.boyFists.price *= 1.5;
-    clickUpgrades.boyFists.quantity++;
-    clickUpgrades.boyFists.price = Math.round(clickUpgrades.boyFists.price)
-    document.getElementById('bbf').innerText = `Price: ${clickUpgrades.boyFists.price}`
-  }
-  upgradeClickMultiplier('boyFists')
-  // boyFistsMultiplier()
+function collectAutoUpgrades() {
+  totalPower += autoMultiplier;
   update()
+  let collectionInterval = setInterval(collectAutoUpgrades, 3000)
 }
-function buyFollower() {
+
+
+
+
+
+
+
+
+
+
+
+// function buyBoyFists() {
+
+//   if (totalPower >= clickUpgrades.boyFists.price) {
+//     totalPower -= clickUpgrades.boyFists.price;
+//     clickUpgrades.boyFists.price *= 1.5;
+//     clickUpgrades.boyFists.quantity++;
+//     clickUpgrades.boyFists.price = Math.round(clickUpgrades.boyFists.price)
+//     document.getElementById('bbf').innerText = `Price: ${clickUpgrades.boyFists.price}`
+//   }
+//   upgradeClickMultiplier('boyFists')
+//   // boyFistsMultiplier()
+//   update()
+// }
+function buyAutoUpgrade() {
   if (totalPower >= automaticUpgrades.follower.price) {
     totalPower -= automaticUpgrades.follower.price;
 
