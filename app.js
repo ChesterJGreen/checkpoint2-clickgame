@@ -80,7 +80,7 @@ function upgradeClickMultiplier(key, purchasedQuantity) {
 
   }
 }
-
+// NOTE this is not functioning properly
 function collectAutoUpgrades() {
   if (!collectAutoUpgrades()) {
     totalPower += autoMultiplier;
