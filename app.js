@@ -30,7 +30,7 @@ let automaticUpgrades = {
     elementId: 'bFollow'
   },
   soldier: {
-    price: 10000,
+    price: 35000,
     quantity: 0,
     multiplier: 100,
     elementId: 'bSoldier'
