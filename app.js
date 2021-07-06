@@ -108,8 +108,8 @@ function upgradeAutoMultiplier(key, purchasedQuantity) {
     // console.log if problems(before changes)
     let upgrade = automaticUpgrades[key]
     let autoMultiplier = upgrade.multiplier
-    let aMultiplier = purchasedQuantity * autoMultiplier
-    multiplier += aMultiplier
+    autoMultiplier = purchasedQuantity * autoMultiplier
+
     //console.log if problems(after changes)
 
     collectAutoUpgrades()
