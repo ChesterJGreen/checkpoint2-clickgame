@@ -82,9 +82,11 @@ function upgradeClickMultiplier(key, purchasedQuantity) {
 }
 
 function collectAutoUpgrades() {
-  totalPower += autoMultiplier;
-  update()
-  let collectionInterval = setInterval(collectAutoUpgrades, 3000)
+  if (!collectAutoUpgrades()) {
+    totalPower += autoMultiplier;
+    update()
+    let collectionInterval = setInterval(collectAutoUpgrades, 3000)
+  }
 }
 
 function buyAutomatic(upgradeName, purchasedQuantity) {
