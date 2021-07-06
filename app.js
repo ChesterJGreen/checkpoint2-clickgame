@@ -33,7 +33,7 @@ let automaticUpgrades = {
     price: 10000,
     quantity: 0,
     multiplier: 100,
-    elementId: ''
+    elementId: 'bSoldier'
   }
 };
 
