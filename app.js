@@ -27,7 +27,7 @@ let automaticUpgrades = {
     price: 600,
     quantity: 0,
     multiplier: 20,
-    elementId: 'buyFollow'
+    elementId: 'bFollow'
   },
   soldier: {
     price: 10000,
@@ -90,14 +90,14 @@ function collectAutoUpgrades() {
 function buyAutomatic(upgradeName, purchasedQuantity) {
   if (automaticUpgrades[upgradeName] && automaticUpgrades[upgradeName].price * purchasedQuantity <= totalPower) {
     console.log(automaticUpgrades[upgradeName].quantity)
-    console.log(automaticUpgrades.upgradeName.price)
+
     totalPower -= automaticUpgrades[upgradeName].price
     automaticUpgrades[upgradeName].price = automaticUpgrades[upgradeName].price * 1.5
     automaticUpgrades[upgradeName].price = Math.round(automaticUpgrades[upgradeName].price)
     automaticUpgrades[upgradeName].quantity = automaticUpgrades[upgradeName].quantity + purchasedQuantity
     document.getElementById(automaticUpgrades[upgradeName].elementId).innerText = `Price: ${automaticUpgrades[upgradeName].price}`
     console.log(automaticUpgrades[upgradeName].quantity)
-    console.log(automaticUpgrades.upgradeName.price)
+
     upgradeAutoMultiplier(upgradeName, purchasedQuantity)
     update()
   }
