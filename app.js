@@ -19,7 +19,7 @@ let clickUpgrades = {
     price: 10000,
     quantity: 0,
     multiplier: 100,
-    elementId: ''
+    elementId: 'bmh'
   }
 };
 let automaticUpgrades = {
