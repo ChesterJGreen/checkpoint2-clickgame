@@ -40,6 +40,12 @@ let automaticUpgrades = {
     quantity: 0,
     multiplier: 100,
     elementId: 'bSoldier'
+  },
+  skurge: {
+    price: 35000,
+    quantity: 0,
+    multiplier: 100,
+    elementId: 'bSkurge'
   }
 };
 
@@ -88,11 +94,10 @@ function upgradeClickMultiplier(key, purchasedQuantity) {
 }
 // NOTE this is not functioning properly
 function collectAutoUpgrades() {
-  if (!collectAutoUpgrades()) {
-    totalPower += autoMultiplier;
-    update()
-    let collectionInterval = setInterval(collectAutoUpgrades, 3000)
-  }
+  let collectionInterval = setInterval(collectAutoUpgrades, 3000)
+  totalPower += autoMultiplier;
+  update()
+
 }
 
 function buyAutomatic(upgradeName, purchasedQuantity) {
@@ -120,10 +125,10 @@ function upgradeAutoMultiplier(key, purchasedQuantity) {
 
     //console.log if problems(after changes)
 
-    collectAutoUpgrades()
+
   }
 }
-
+collectAutoUpgrades()
 
 
 
