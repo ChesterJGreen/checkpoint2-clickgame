@@ -20,6 +20,12 @@ let clickUpgrades = {
     quantity: 0,
     multiplier: 100,
     elementId: 'bmh'
+  },
+  mjolnir: {
+    price: 1000000,
+    quantity: 0,
+    multiplier: 1000,
+    elementId: 'bmjnr'
   }
 };
 let automaticUpgrades = {
@@ -27,7 +33,7 @@ let automaticUpgrades = {
     price: 600,
     quantity: 0,
     multiplier: 20,
-    elementId: 'bFollow'
+    elementId: 'buyFollow'
   },
   soldier: {
     price: 35000,
