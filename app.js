@@ -1,10 +1,11 @@
 let power = 0
-let totalPower = 0
+let totalPower = 600
 let multiplier = 0
 let aUpgrades = 0
 let cUpgrades = 0
 let autoClick = 0
-let autoMultiplier = 0
+let autoMultiplier = 0;
+let updateCount = 0;
 // // let allCModifiers = for (let modifiers in clickUpgrades) {
 // //   clickUpgrades[modifiers].multiplier
 // }
@@ -63,7 +64,9 @@ function powerOfThor() {
 }
 
 function update() {
-  totalPower = Math.round(totalPower)
+  console.log(`Total power before round: ${totalPower}. Update count: ${++updateCount}`);
+  totalPower = Math.round(totalPower);
+  console.log(`Total power after round: ${totalPower}. Update count: ${updateCount}`);
   document.getElementById('powerOS').innerHTML = `${totalPower}`
 
 }
@@ -94,8 +97,10 @@ function upgradeClickMultiplier(key, purchasedQuantity) {
 }
 // NOTE this is not functioning properly
 function collectAutoUpgrades() {
-  let collectionInterval = setInterval(collectAutoUpgrades, 3000)
+  console.log(autoMultiplier)
+  //let collectionInterval = setInterval(collectAutoUpgrades, 3000)
   totalPower += autoMultiplier;
+  console.log(autoMultiplier)
   update()
 
 }
@@ -128,7 +133,9 @@ function upgradeAutoMultiplier(key, purchasedQuantity) {
 
   }
 }
-collectAutoUpgrades()
+
+let collectInterval = setInterval(collectAutoUpgrades, 3000);
+
 
 
 
