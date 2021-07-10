@@ -1,14 +1,13 @@
 let power = 0
 let energy = 600
-let multiplier = 0
+let multiplier = 1
 let aUpgrades = 0
 let cUpgrades = 0
 let autoClick = 0
 let autoMultiplier = 0;
 let updateCount = 0;
-// // let allCModifiers = for (let modifiers in clickUpgrades) {
-// //   clickUpgrades[modifiers].multiplier
-// }
+
+
 let clickUpgrades = {
   boyFists: {
     price: 10,
@@ -52,8 +51,7 @@ let automaticUpgrades = {
 
 
 function powerOfThor() {
-  energy += 1
-  energy += multiplier
+  energy += multiplier * 1
   update()
 }
 
