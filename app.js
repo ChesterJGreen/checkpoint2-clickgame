@@ -119,10 +119,11 @@ let collectInterval = setInterval(collectAutoUpgrades, 3000);
 function displayClickMultiplier() {
   document.getElementById('clickM').innerText = `X ${multiplier}`
   document.getElementById('autoClickM').innerText = `X ${autoMultiplier}`
-
 }
 
-
+function displayEachResource(upgrade, quantitized) {
+  document.getElementById('bbfq').innerText = `X ${clickUpgrades.boyFists.quantity}`
+}
 
 
 
