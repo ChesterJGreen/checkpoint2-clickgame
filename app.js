@@ -59,6 +59,7 @@ function update() {
   energy = Math.round(energy);
   document.getElementById('powerOS').innerHTML = `${energy}`
   displayClickMultiplier()
+  displayEachResource()
 
 }
 function buyUpgrade(upgradeName, purchasedQuantity) {
@@ -121,8 +122,15 @@ function displayClickMultiplier() {
   document.getElementById('autoClickM').innerText = `X ${autoMultiplier}`
 }
 
-function displayEachResource(upgrade, quantitized) {
-  document.getElementById('bbfq').innerText = `X ${clickUpgrades.boyFists.quantity}`
+function displayEachResource() {
+  document.getElementById('bbfq').innerText = `Own: ${clickUpgrades.boyFists.quantity}`
+  document.getElementById('bmhq').innerText = `Own: ${clickUpgrades.manHands.quantity}`
+  document.getElementById('bmjq').innerText = `Own: ${clickUpgrades.mjolnir.quantity}`
+  document.getElementById('bfq').innerText = `Own: ${automaticUpgrades.follower.quantity}`
+  document.getElementById('bsq').innerText = `Own: ${automaticUpgrades.soldier.quantity}`
+  document.getElementById('bskq').innerText = `Own: ${automaticUpgrades.skurge.quantity}`
+
+
 }
 
 
