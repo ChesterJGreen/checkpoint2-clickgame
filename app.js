@@ -68,6 +68,7 @@ function update() {
   totalPower = Math.round(totalPower);
   console.log(`Total power after round: ${totalPower}. Update count: ${updateCount}`);
   document.getElementById('powerOS').innerHTML = `${totalPower}`
+  displayClickMultiplier()
 
 }
 function buyUpgrade(upgradeName, purchasedQuantity) {
@@ -136,7 +137,11 @@ function upgradeAutoMultiplier(key, purchasedQuantity) {
 
 let collectInterval = setInterval(collectAutoUpgrades, 3000);
 
+function displayClickMultiplier() {
+  document.getElementById('clickM').innerText = `X ${multiplier}`
+  document.getElementById('autoClickM').innerText = `X ${autoMultiplier}`
 
+}
 
 
 
