@@ -1,5 +1,5 @@
 let power = 0
-let energy = 600
+let energy = 0
 let multiplier = 1
 let aUpgrades = 0
 let cUpgrades = 0
@@ -10,7 +10,7 @@ let updateCount = 0;
 
 let clickUpgrades = {
   boyFists: {
-    price: 10,
+    price: 100,
     quantity: 0,
     multiplier: 1,
     elementId: 'bbf'
