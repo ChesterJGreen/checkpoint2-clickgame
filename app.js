@@ -84,24 +84,18 @@ function upgradeClickMultiplier(key, purchasedQuantity) {
 }
 
 function collectAutoUpgrades() {
-  console.log(autoMultiplier)
   energy += autoMultiplier;
-  console.log(autoMultiplier)
   update()
 
 }
 
 function buyAutomatic(upgradeName, purchasedQuantity) {
   if (automaticUpgrades[upgradeName] && automaticUpgrades[upgradeName].price * purchasedQuantity <= energy) {
-    console.log(automaticUpgrades[upgradeName].quantity)
-
     energy -= automaticUpgrades[upgradeName].price
     automaticUpgrades[upgradeName].price = automaticUpgrades[upgradeName].price * 1.5
     automaticUpgrades[upgradeName].price = Math.round(automaticUpgrades[upgradeName].price)
     automaticUpgrades[upgradeName].quantity = automaticUpgrades[upgradeName].quantity + purchasedQuantity
     document.getElementById(automaticUpgrades[upgradeName].elementId).innerText = `Price: ${automaticUpgrades[upgradeName].price}`
-    console.log(automaticUpgrades[upgradeName].quantity)
-
     upgradeAutoMultiplier(upgradeName, purchasedQuantity)
     update()
   }
