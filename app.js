@@ -41,11 +41,11 @@ let automaticUpgrades = {
     multiplier: 100,
     elementId: 'bSoldier'
   },
-  skurge: {
+  ladySiv: {
     price: 35000,
     quantity: 0,
     multiplier: 100,
-    elementId: 'bSkurge'
+    elementId: 'bladys'
   }
 };
 
@@ -128,7 +128,7 @@ function displayEachResource() {
   document.getElementById('bmjq').innerText = `Own: ${clickUpgrades.mjolnir.quantity}`
   document.getElementById('bfq').innerText = `Own: ${automaticUpgrades.follower.quantity}`
   document.getElementById('bsq').innerText = `Own: ${automaticUpgrades.soldier.quantity}`
-  document.getElementById('bskq').innerText = `Own: ${automaticUpgrades.skurge.quantity}`
+  document.getElementById('bls').innerText = `Own: ${automaticUpgrades.ladySiv.quantity}`
 
 
 }
