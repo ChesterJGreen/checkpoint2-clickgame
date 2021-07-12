@@ -32,7 +32,7 @@
   }
 </style>
 
-<body class="bg-secondary">
+<body class="debug bg-secondary">
   <header class="container-fluid sticky-top bg-dark text-light text-center">
     <h1>Build the Power of Thor</h1>
   </header>
@@ -43,24 +43,29 @@
           <div class="col-12 pt-2">
 
             <h5 class="text-shadow">Upgrades</h5>
-            <button class="rounded bg-info m-1" onclick="buyUpgrade('boyFists', 1)">Buy Boy Fists <i
-                class="far fa-hand-rock"></i><br>
-              <span id="bbf">Price: 100</span>
-              <h6 id="bbfq">Own: 0</h6>
-            </button>
-            <br>
+            <div class="row">
 
-            <button class="rounded bg-info m-1" onclick="buyUpgrade('manHands', 1)">Buy Man Hands <i
-                class="far fa-hand-rock fa-lg"></i><i class="far fa-hand-rock fa-lg"></i><br>
-              <span id="bmh">Price: 10000</span>
-              <h6 id="bmhq">Own: 0</h6>
-            </button><br>
-            <button class="rounded bg-info m-1" onclick="buyUpgrade('mjolnir', 1)">Buy Mjolnir <i
-                class="fas fa-gavel fa-lg"></i><br>
-              <span id="bmjnr">Price: 1000000</span>
-              <h6 id="bmjq">Own: 0</h6>
-            </button><br>
+              <button class="rounded bg-info m-1" onclick="buyUpgrade('boyFists', 1)">Buy Boy Fists <i
+                  class="far fa-hand-rock"></i><br>
+                <span id="bbf">Price: 100</span><br>
+                <span>Multiplier X 1</span>
+                <h6 id="bbfq">Own: 0</h6>
+              </button>
+              <br>
+
+              <button class="rounded bg-info m-1" onclick="buyUpgrade('manHands', 1)">Buy Man Hands <i
+                  class="far fa-hand-rock fa-lg"></i><i class="far fa-hand-rock fa-lg"></i><br>
+                <span id="bmh">Price: 10000</span>
+                <h6 id="bmhq">Own: 0</h6>
+              </button><br>
+              <button class="rounded bg-info m-1" onclick="buyUpgrade('mjolnir', 1)">Buy Mjolnir <i
+                  class="fas fa-gavel fa-lg"></i><br>
+                <span id="bmjnr">Price: 1000000</span>
+                <h6 id="bmjq">Own: 0</h6>
+              </button><br>
+            </div>
           </div>
+
           <div class="col-12 pt-2">
             <h5 class="">Automatic Fighting</h5>
             <button class="rounded bg-info m-1" onclick="buyAutomatic('follower', 1)">Follower <i
