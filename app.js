@@ -49,19 +49,6 @@ let automaticUpgrades = {
   }
 };
 
-
-function powerOfThor() {
-  energy += multiplier * 1
-  update()
-}
-
-function update() {
-  energy = Math.round(energy);
-  document.getElementById('powerOS').innerHTML = `${energy}`
-  displayClickMultiplier()
-  displayEachResource()
-
-}
 function buyUpgrade(upgradeName, purchasedQuantity) {
   if (clickUpgrades[upgradeName] && clickUpgrades[upgradeName].price * purchasedQuantity <= energy) {
     energy -= clickUpgrades[upgradeName].price
@@ -72,21 +59,6 @@ function buyUpgrade(upgradeName, purchasedQuantity) {
     upgradeClickMultiplier(upgradeName, purchasedQuantity)
     update()
   }
-}
-
-function upgradeClickMultiplier(key, purchasedQuantity) {
-  if (clickUpgrades[key]) {
-    let upgrade = clickUpgrades[key]
-    let clickMultiplier = upgrade.multiplier
-    let cMultiplier = purchasedQuantity * clickMultiplier
-    multiplier += cMultiplier
-  }
-}
-
-function collectAutoUpgrades() {
-  energy += autoMultiplier;
-  update()
-
 }
 
 function buyAutomatic(upgradeName, purchasedQuantity) {
@@ -101,6 +73,15 @@ function buyAutomatic(upgradeName, purchasedQuantity) {
   }
 }
 
+function upgradeClickMultiplier(key, purchasedQuantity) {
+  if (clickUpgrades[key]) {
+    let upgrade = clickUpgrades[key]
+    let clickMultiplier = upgrade.multiplier
+    let cMultiplier = purchasedQuantity * clickMultiplier
+    multiplier += cMultiplier
+  }
+}
+
 function upgradeAutoMultiplier(key, purchasedQuantity) {
   if (automaticUpgrades[key]) {
     let upgrade = automaticUpgrades[key]
@@ -109,7 +90,24 @@ function upgradeAutoMultiplier(key, purchasedQuantity) {
   }
 }
 
+function powerOfThor() {
+  energy += multiplier * 1
+  update()
+}
+
+function collectAutoUpgrades() {
+  energy += autoMultiplier;
+  update()
+}
+
 let collectInterval = setInterval(collectAutoUpgrades, 3000);
+
+function update() {
+  energy = Math.round(energy);
+  document.getElementById('powerOS').innerHTML = `${energy}`
+  displayClickMultiplier()
+  displayEachResource()
+}
 
 function displayClickMultiplier() {
   document.getElementById('clickM').innerText = `X ${multiplier}`
@@ -123,10 +121,5 @@ function displayEachResource() {
   document.getElementById('bfq').innerText = `Own: ${automaticUpgrades.follower.quantity}`
   document.getElementById('bsq').innerText = `Own: ${automaticUpgrades.soldier.quantity}`
   document.getElementById('bls').innerText = `Own: ${automaticUpgrades.ladySiv.quantity}`
-
-
 }
-
-
-
 
