@@ -38,13 +38,13 @@ let automaticUpgrades = {
   soldier: {
     price: 35000,
     quantity: 0,
-    multiplier: 100,
+    multiplier: 200,
     elementId: 'bSoldier'
   },
   ladySiv: {
-    price: 35000,
+    price: 3500000,
     quantity: 0,
-    multiplier: 100,
+    multiplier: 2000,
     elementId: 'bladys'
   }
 };
